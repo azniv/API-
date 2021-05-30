@@ -1,4 +1,4 @@
-﻿const uri = 'api/Stack';
+﻿const uri = 'api/stack';
 let todos = [];
 
 function getItems() {

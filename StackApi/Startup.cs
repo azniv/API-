@@ -46,7 +46,9 @@ namespace StackApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                //endpoints.MapControllerRoute(name: "default", 
+                //    pattern:"{controller=Stack}/{action}") ;
+               endpoints.MapControllers();
             });
         }
     }

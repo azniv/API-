@@ -12,31 +12,41 @@ namespace StackApi.Controllers
     [ApiController]
     public class Stack : ControllerBase
     {
-        Stack<string> stack = new Stack<string>();
-        
-        public Stack()
-        {
-            stack.Push("Hello,");
-            stack.Push("world");
-        }
+        static Stack<string> stack = new Stack<string>();
+     
         // GET: api/<Stack>
         [HttpGet]
+        [Route("pop")]
         public IEnumerable<string> Pop()
         {
             return stack;
         }
 
-      
+        [HttpGet]
+        [Route("peek")]
+        public string Peek()
+        {
+            return stack.Peek();
+        }
+        // GET: api/<Stack>
+        [HttpGet]
+        [Route("size")]
+        public int Size()
+        {
+            return stack.Count;
+        }
+
 
         // POST api/<Stack>
         [HttpPost]
+
         public ActionResult<IEnumerable<string>> Push([FromBody] string value)
         {
-            stack.Push("hgfy");
+            stack.Push(value);
             return CreatedAtAction(nameof(Pop), stack);
 
         }
-    
+
 
     }
 }
